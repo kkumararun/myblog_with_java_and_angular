@@ -63,6 +63,7 @@ public class HibernateConfiguration {
 		properties.put("hibernate.show_sql", "true");
 		properties.put("hibernate.format_sql", "true");
 		properties.put("hibernate.hbm2ddl.auto", "update");
+		properties.put("hibernate.lazy", "false");
 		return properties;
 	}
 
