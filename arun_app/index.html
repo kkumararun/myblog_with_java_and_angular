@@ -2,14 +2,20 @@
 <html ng-app="myBlogApp">
   <head>
     <meta charset="utf-8">
-    <title></title>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
+        <meta name="author" content="Arun Kumar">
+    <title>My Blog</title>
+    	<link rel="icon" type="image/png"  href="public/images/arunfavi.png">
+    <!--<script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
 
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.7/angular-route.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/angular.js/1.4.7/angular-route.min.js"></script>-->
+    
+<script type="text/javascript" src="public/js/angular.js" charset="utf-8"></script>
+<script type="text/javascript" src="public/js/angular-route.js" charset="utf-8"></script>
+	
+    <script src="public/js/jquery.js" charset="utf-8"></script>
+    <script src="public/js/bootstrap.js" charset="utf-8"></script>
     <link rel="stylesheet" href="public/css/bootstrap.css" media="screen" title="no title" charset="utf-8">
-<!--<script src="public/js/angular.js" charset="utf-8"></script>-->
-    <!--<script src="public/js/bootstrap.js" charset="utf-8"></script>
-    <script src="public/js/jquery.min.js" charset="utf-8"></script>-->
+    
   </head>
   <body>
 
@@ -49,9 +55,16 @@
         </div>
       </div>
     </header>
-<br><br>
+
       <!-- Begin page content -->
       <div ng-view></div>
+
+<div class="container">	
+	<footer>
+		<hr/>
+		Copyright &#169; Arun Prjapati @ NIIT RajNagar Ghaziabad
+	</footer>
+</div>
 
           <script src="app.js"></script>
           <script src="controllers/blogController.js"></script>
