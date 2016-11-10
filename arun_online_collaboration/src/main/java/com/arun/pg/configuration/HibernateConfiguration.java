@@ -13,6 +13,8 @@ import org.springframework.orm.hibernate5.HibernateTransactionManager;
 import org.springframework.orm.hibernate5.LocalSessionFactoryBuilder;
 import org.springframework.transaction.annotation.EnableTransactionManagement;
 
+import com.arun.pg.model.Blog;
+
 @Configuration
 @ComponentScan({"com.arun.pg"})
 @EnableTransactionManagement
@@ -39,7 +41,9 @@ public class HibernateConfiguration {
 	public SessionFactory sessionFactory(DataSource dataSource) {
 		LocalSessionFactoryBuilder builder = new LocalSessionFactoryBuilder(dataSource);
 		builder.addProperties(hibernateProperties());
-		builder.scanPackages("com.arun.pg");
+		builder.scanPackages("com.arun.pg.model");
+//		builder.addAnnotatedClass(User.class);
+//		builder.addAnnotatedClass(Blog.class);
 		return builder.buildSessionFactory();
 	}
 

@@ -20,14 +20,18 @@ import com.arun.pg.model.Blog;
 public class BlogController {
 
 	@Autowired
-private BlogDAO blogD;
+private BlogDAO blogDAO;
 
+	/*
+	with crossorigin annotaion another(which you are passing in origins) 
+	application can access your api which is running on another server
+	*/  
 	@CrossOrigin(origins="http://127.0.0.1:8887")
 	@RequestMapping(value="/allblogs", method=RequestMethod.GET)
 	@ResponseBody
 	public List<Blog> findAllBlog(){
-		System.out.println(blogD.getAllBlogs());
-		return blogD.getAllBlogs();
+		System.out.println(blogDAO.getAllBlogs());
+		return blogDAO.getAllBlogs();
 	}
 
 }
