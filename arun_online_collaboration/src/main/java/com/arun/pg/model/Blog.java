@@ -21,6 +21,10 @@ public class Blog {
 
 	@NotNull
 	@NotEmpty
+	String blogCategory;
+
+	@NotNull
+	@NotEmpty
 	String blogDiscription;;
 
 	@NotNull
@@ -45,6 +49,14 @@ public class Blog {
 
 	public void setBlogTitle(String blogTitle) {
 		this.blogTitle = blogTitle;
+	}
+
+	public String getBlogCategory() {
+		return blogCategory;
+	}
+
+	public void setBlogCategory(String blogCategory) {
+		this.blogCategory = blogCategory;
 	}
 
 	public String getBlogDiscription() {

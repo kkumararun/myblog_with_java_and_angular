@@ -20,25 +20,28 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 	public void configAuthentication(AuthenticationManagerBuilder auth) throws Exception {
 
 		auth.jdbcAuthentication().dataSource(dataSource)
-				.usersByUsernameQuery("select email,password, enabled from user where email=?")
-				.authoritiesByUsernameQuery("select email, role from user where email =? ");
+				.usersByUsernameQuery("select username,password, enabled from usertable where username=?")
+				.authoritiesByUsernameQuery("select username, role from usertabel where username =? ");
 	}
 
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
 
-		  http.authorizeRequests()
-			.antMatchers("/admin/**").access("hasRole('ROLE_ADMIN')")
-			.antMatchers("/user/**").access("hasRole('ROLE_USER')")
-			.antMatchers("/").permitAll()
-			.and()
-			  .formLogin().loginPage("/login").failureUrl("/login?error")
-			  .usernameParameter("username").passwordParameter("password")
-			.and()
-			  .logout().logoutSuccessUrl("/login?logout")
-			.and()
-			  .exceptionHandling().accessDeniedPage("/403")
-			.and()
-			  .csrf();
-		}
+		http
+		.authorizeRequests()
+		.antMatchers("/admin/**").access("hasRole('ROLE_ADMIN')")
+		.antMatchers("/user/**").access("hasRole('ROLE_USER')")
+				.antMatchers("/").permitAll()
+				.and().formLogin()
+				.loginPage("/login")
+				.failureUrl("/login?error")
+				.usernameParameter("username").passwordParameter("password")
+				.defaultSuccessUrl("/")
+				.and()
+				.logout()
+				.logoutSuccessUrl("/login?logout")
+				// .and()
+				// .exceptionHandling().accessDeniedPage("/403")
+				.and().csrf();
+	}
 }
